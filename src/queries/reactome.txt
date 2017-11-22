@@ -1,0 +1,36 @@
+Query 1
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#>  SELECT ?pathway ?reaction ?complex ?protein  WHERE  {?pathway rdf:type biopax3:Pathway .  ?pathway biopax3:displayName ?pathwayname .?pathway biopax3:pathwayComponent ?reaction . ?reaction rdf:type biopax3:BiochemicalReaction .  ?reaction  biopax3:right  ?complex . ?reaction biopax3:left ?left .?complex rdf:type biopax3:Complex .  ?complex biopax3:component ?protein . ?protein rdf:type biopax3:Protein . ?protein biopax3:entityReference <http://purl.uniprot.org/uniprot/P01308>}
+
+
+
+
+Query 2
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#> SELECT DISTINCT ?x WHERE { ?x biopax3:dataSource ?x1 . ?x biopax3:organism ?x2 . ?x biopax3:pathwayComponent ?x3 . ?x biopax3:comment ?x4 . ?x biopax3:evidence ?x5 . } 
+
+
+
+
+Query 3
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#> SELECT DISTINCT ?pathway ?reaction ?entity WHERE  {?pathway rdf:type biopax3:Pathway . ?pathway biopax3:displayName ?pathwayname . ?pathway biopax3:pathwayComponent ?reaction . ?reaction rdf:type biopax3:BiochemicalReaction . ?reaction biopax3:left ?entity . ?entity biopax3:cellularLocation <http://purl.obolibrary.org/obo/GO_0005886> . ?pathway biopax3:dataSource ?source . ?source biopax3:name ?sourceName .}
+
+
+
+
+Query 4
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#> SELECT DISTINCT ?pathway ?organism ?ref WHERE { ?pathway rdf:type biopax3:Pathway .  ?pathway biopax3:displayName ?pathwayname .  ?pathway biopax3:organism ?organism . ?organism biopax3:name ?organismName . ?organism rdf:type ?orgType. ?organism biopax3:xref ?ref . ?ref biopax3:id ?id ;  rdf:type ?refType } 
+
+
+
+
+Query 5
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#> SELECT DISTINCT ?pathway ?organism  WHERE { ?pathway rdf:type ?pathType .  ?pathway biopax3:organism ?organism . ?organism biopax3:name ?organismName . ?organism rdf:type ?orgType. ?organism biopax3:xref ?ref . ?ref biopax3:id ?id ;  rdf:type ?refType } 
+
+
+
+
+Query 6
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#> SELECT DISTINCT ?organism ?ref WHERE { ?organism biopax3:name ?organismName . ?organism rdf:type ?orgType. ?organism biopax3:xref ?ref . ?ref biopax3:id ?id ; rdf:type ?refType } 
+
+
+
+
