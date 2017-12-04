@@ -42,16 +42,7 @@ public class RelationalLoader {
 	
 	public static void main(String[] args) {
 		
-		int ii = 1;
-		Queries qq = new Queries();
-		//System.out.println(qq.reacto_queries.size());
-		for(String q : Queries.geonames_queries){
-			
-			System.out.println("Query " + (ii++));
-			System.out.println(q);
-			System.out.println("\n\n\n");
-		}
-		if(true) return ;
+		
 		System.out.println("Starting time: " + new Date().toString());
 		int batchSize = Integer.parseInt(args[3]);
 		Connection c = null;
